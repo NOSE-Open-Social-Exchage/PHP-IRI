@@ -1,0 +1,27 @@
+{
+	"name": "nose/iri",
+	"description": "An IRI library",
+	"version": "0.0.0",
+	"type": "library",
+	"keywords": ["IRI", "parser", "NOSE"],
+	"readme": "README.md",
+	"authors": [
+		{
+			"name": "Duanin2",
+			"email": "duanin2-nose@duanin2.eu",
+			"homepage": "https://duanin2.eu/",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"email": "duanin2-nose@duanin2.eu"
+	},
+	"require": {
+		"php": "^8.4"
+	},
+	"autoload": {
+		"psr-4": {
+			"NOSE\\": "src/"
+		}
+	}
+}
