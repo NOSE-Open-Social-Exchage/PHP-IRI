@@ -147,10 +147,8 @@ class IRI {
 		get => empty($this->scheme);
 	}
 
-	public function resolve(IRI $base) {
+	protected function resolve(IRI | null $base = null) {
 		$target = new IRI();
-
-		if ($base->isRelative) throw new \InvalidArgumentException("Base IRI cannot be relative.");
 
 		if (!$this->isRelative) {
 			$target->scheme = $this->scheme;
@@ -160,6 +158,8 @@ class IRI {
 			$target->path = self::removeDotSegments($this->path);
 			$target->query = $this->query;
 		} else {
+			if ($base === null || $base->isRelative) throw new \InvalidArgumentException("Base IRI cannot be relative.");
+
 			if (!empty($this->host)) {
 				$target->userinfo = $this->userinfo;
 				$target->host = $this->host;
