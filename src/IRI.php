@@ -141,7 +141,7 @@ class IRI {
 	}
 
 	public bool $isAbsolute {
-		get => !empty($this->scheme) && !empty($this->path) && !empty($this->query) && empty($this->fragment);
+		get => !$this->isRelative && empty($this->fragment);
 	}
 	public bool $isRelative {
 		get => empty($this->scheme);
