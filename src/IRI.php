@@ -138,6 +138,9 @@ class IRI {
 		get {
 			return self::pctEncode($this->href, "%|(?P>unreserved)|(?P>reserved)");
 		}
+		set(string $uri) {
+			$this->href = $uri;
+		}
 	}
 
 	public bool $isAbsolute {
