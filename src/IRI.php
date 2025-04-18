@@ -192,8 +192,11 @@ class IRI {
 		return $target;
 	}
 
-	public function __construct(null | string $href = null) {
-		if (!empty($href)) $this->href = $href;
+	public function __construct(null | string | IRI $iri = null) {
+		if (!empty($iri)) {
+			if ($iri instanceof IRI) $this->href = $iri->href;
+			else $this->href = $iri;
+		}
 	}
 
 	protected static function parse(string $iri): array {
